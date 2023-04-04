@@ -10,12 +10,6 @@ const defaultFormFeild = {
 }
 
 const SignInForm = () =>{
-
-    const signInGoogle= async () =>{
-        const {user} = await signInWithGooglePopup();
-        await creatUserDocumentFromAuth(user);
-    }
-
     const [formFeilds, setformFeilds] = useState(defaultFormFeild);
     const {  email, password} = formFeilds;
    
@@ -26,14 +20,18 @@ const SignInForm = () =>{
     const resetFormFeild = () =>{
         setformFeilds(defaultFormFeild);
     }
+    
+    const signInGoogle= async () =>{
+        await signInWithGooglePopup(); 
+      
+    }
     const handleSubmit = async (event) => {
         event.preventDefault();
         try{
-            const res = await signInAuthUserWithEmailAndPassword(email,password);
-            console.log(res)
+            await signInAuthUserWithEmailAndPassword(email,password);
             resetFormFeild();
         } catch(error){
-            if(error.code == "auth/wrong=password"){
+            if(error.code === "auth/wrong=password"){
                 alert('Cannot Create user, email already in use')
             }
             console.log("user creation encounterd an error", error);
