@@ -2,7 +2,7 @@ import "./categories.styles.scss"
 import {Routes, Route} from "react-router-dom"
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/Navigation/navigation.component";
-import SignIn from "./routes/sign-in/sign-in.component";
+import Authentication from "./routes/authentication/authentication.component";
 
 const Shop = () =>{
   return(<div>
@@ -15,7 +15,7 @@ const App = () => {
       <Route path="/" element={<Navigation/>}>
         <Route index element={<Home/>}/>
         <Route path="Shop" element={<Shop/>}/>
-        <Route path="SignIn" element={<SignIn/>}/>
+        <Route path="Authentication" element={<Authentication/>}/>
       </Route>
     </Routes>
     
