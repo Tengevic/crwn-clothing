@@ -8,7 +8,7 @@ const defaultFormFeild = {
     displayName:"",
     email:"",
     password:"",
-    confirmPassword:""
+    confgitirmPassword:""
 }
 
 const SignUpForm = () =>{
